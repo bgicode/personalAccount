@@ -16,37 +16,36 @@ include_once('signin.php');
             <div class="formWraper">
                 <form class="form" name="feedback" method="POST" action="<?php $_SERVER['REQUEST_URI'] ?>">
                     <div class="formTitle">Логин</div>
-                    <input class="inputField" type="text" name="login" value="" required>
+                    <input class="inputField" type="text" name="login" value="<?= autoComplete($validation, $login, $login) ?>" required>
                     <?php
                     if ($login
                         || $validation
                     ) {
-                        echo validMessage($pass, $validLogin);
+                        echo validMessage($pass, $validLogin, "не меньше 6 символов (латинские буквы, цифры и нижнее подчеркивание, первый символ только буква");
                     }
                     ?>
 
                     <div class="formTitle">Пароль</div>
-                    <input class="inputField" type="text" name="password" placeholder="" value="<?= autoComplete($_SESSION['validation'], $id, $_SESSION['id']) ?>" required>
+                    <input class="inputField" type="password" name="password" placeholder="" value="<?= autoComplete($validation, $pass, $pass) ?>" required>
                     <?php
                     if ($pass
                         || $validation
                     ) {
-                        echo validMessage($pass, $validPass);
+                        echo validMessage($pass, $validPass, "не менее 8 символов, наличие латинских букв, -, _, *, $, |");
                     }
                     ?>
-                    
 
                     <div class="btnWrap">
                         <input class="submitBtn" type="submit" name="submit_btn" value="Войти">
 
                     </div>
                     <?php
-                    if ($_SESSION['message']
+                    if ($message
                         && $validation
                     ) {
-                        echo '<p class="endMessage">' . $_SESSION['message'] . '</p>';
+                        echo '<p class="endMessage">' . $message . '</p>';
                     }
-                    ?>
+                     ?>
                 </form>
             </div>
         </div>

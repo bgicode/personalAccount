@@ -1,5 +1,5 @@
 <?php
-include_once('signin.php');
+include_once('logout.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,19 +15,11 @@ include_once('signin.php');
         <div class="wrap">
             <div class="formWraper">
                 <form class="form" name="feedback" method="POST" action="<?php $_SERVER['REQUEST_URI'] ?>">
-
-         
-
                     <div class="btnWrap">
-                        <input class="submitBtn" type="submit" name="submit_btn" value="Войти">
-
+                        <input class="submitBtn" type="submit" name="submit_btn" value="Выйти">
                     </div>
                     <?php
-                    if ($_SESSION['message']
-                        && $validation
-                    ) {
-                        echo '<p class="endMessage">' . $_SESSION['message'] . '</p>';
-                    }
+                    echo '<p class="endMessage">Здравствуйте, ' . $_SESSION['login'] . '. Вы успешно авторизованы</p>';
                     ?>
                 </form>
             </div>

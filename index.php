@@ -10,6 +10,7 @@ include_once('signin.php');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="./script.js" type="text/javascript"></script>
         </head>
     <body class="bodyFeed">
         <div class="wrap">
@@ -26,7 +27,13 @@ include_once('signin.php');
                     ?>
 
                     <div class="formTitle">Пароль</div>
-                    <input class="inputField" type="password" name="password" placeholder="" value="<?= autoComplete($validation, $pass, $pass) ?>" required>
+                    <div class="inputPassWrap">
+                        <input id="passwordField" class="inputField inputPassField" type="password" name="password" placeholder="" value="<?= autoComplete($validation, $pass, $pass) ?>" required>
+                        <label id="checkImg" for="" title="показать пароль">
+                            <input id="showPass" class="showPass" type="checkbox" name="checkbox" />
+                            <span></span>
+                        </label>
+                    </div>
                     <?php
                     if ($pass
                         || $validation
@@ -37,7 +44,6 @@ include_once('signin.php');
 
                     <div class="btnWrap">
                         <input class="submitBtn" type="submit" name="submit_btn" value="Войти">
-
                     </div>
                     <?php
                     if ($message
@@ -45,7 +51,7 @@ include_once('signin.php');
                     ) {
                         echo '<p class="endMessage">' . $message . '</p>';
                     }
-                     ?>
+                    ?>
                 </form>
             </div>
         </div>

@@ -43,7 +43,7 @@ function validMessage(mixed $field, mixed $check, string $errMessage = 'недо
         return '<p class="message ' . $color . '">' . $message . '</p>';
     }
 
-    return '<p class="message green">проверка пройдена</p>';
+    return '<p class="message green">соотвестует правилу ввода</p>';
 }
 
 function read(string $dataPath): array
@@ -53,7 +53,7 @@ function read(string $dataPath): array
             $arWritingLines[] = $data;
         }
     }
-    
+
     fclose($file);
 
     return $arWritingLines;

@@ -10,7 +10,7 @@ include_once('logout.php');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        </head>
+    </head>
     <body class="bodyFeed">
         <div class="wrap">
             <div class="formWraper">

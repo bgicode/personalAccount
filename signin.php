@@ -7,7 +7,6 @@ $host = $_SERVER['HTTP_HOST'];
 $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $extra = 'profile.php';
 
-
 if ($_POST['submit_btn']) {
     $dataPath = 'user.csv';
     $login = trim($_POST['login']);
@@ -18,7 +17,6 @@ if ($_POST['submit_btn']) {
 
     $validLogin = validation($regExLogin, $login);
     $validPass = validation($regExPass, $pass);
-
 
     $validation = $validLogin && $validPass;
 

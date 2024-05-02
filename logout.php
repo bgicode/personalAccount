@@ -3,10 +3,6 @@ session_start();
 
 include_once('functions.php');
 
-$host = $_SERVER['HTTP_HOST'];
-$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = 'index.php';
-
 if ($_POST['submit_btn']) {
     $_SESSION = [];
 
@@ -14,7 +10,7 @@ if ($_POST['submit_btn']) {
 
     session_destroy();
 
-    header("Location: http://$host$uri/$extra");
+    redirect('index.php');
 
     exit;
 }

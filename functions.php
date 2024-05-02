@@ -13,20 +13,13 @@ function validation($regEx, $field)
     }
 }
 
-function autoComplete(mixed $param = '', mixed $error = '', mixed $success = ''): string
+function autoComplete(mixed $field = ''): string
 {
-    if (!$param) {
-        if ($error) {
-            return $error;
-        }
-    } elseif ($param) {
-        if ($success) {
-            return $success;
-        }
+    if ($field) {
+        return $field;
     }
 
     return '';
-
 }
 
 function validMessage(mixed $field, mixed $check, string $errMessage = 'недопустимые символы'): string
@@ -43,7 +36,7 @@ function validMessage(mixed $field, mixed $check, string $errMessage = 'недо
         return '<p class="message ' . $color . '">' . $message . '</p>';
     }
 
-    return '<p class="message green">соотвестует правилу ввода</p>';
+    return '<p class="message green">соответствует правилу ввода</p>';
 }
 
 function read(string $dataPath): array
@@ -57,4 +50,12 @@ function read(string $dataPath): array
     fclose($file);
 
     return $arWritingLines;
+}
+
+function redirect(string $extra): void
+{
+    $host = $_SERVER['HTTP_HOST'];
+    $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    
+    header("Location: http://$host$uri/$extra");
 }

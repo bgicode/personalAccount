@@ -3,10 +3,6 @@ session_start();
 
 include_once('functions.php');
 
-$host = $_SERVER['HTTP_HOST'];
-$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = 'profile.php';
-
 if ($_POST['submit_btn']) {
     $dataPath = 'user.csv';
     $login = trim($_POST['login']);
@@ -26,7 +22,7 @@ if ($_POST['submit_btn']) {
             if ($login == $user[0]) {
                 if ($pass == $user[1]) {
                     $_SESSION['login'] = $login;
-                    header("Location: http://$host$uri/$extra");
+                    redirect('profile.php');
                     exit;
                 } else {
                     $message = 'неверный пароль';

@@ -11,33 +11,29 @@ include_once('signin.php');
         <title>Document</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="./script.js" type="text/javascript"></script>
-        </head>
+    </head>
     <body class="bodyFeed">
         <div class="wrap">
             <div class="formWraper">
                 <form class="form" name="feedback" method="POST" action="<?php $_SERVER['REQUEST_URI'] ?>">
                     <div class="formTitle">Логин</div>
-                    <input class="inputField" type="text" name="login" value="<?= autoComplete($validation, $login, $login) ?>" required>
+                    <input class="inputField" type="text" name="login" value="<?= autoComplete($login) ?>" required>
                     <?php
-                    if ($login
-                        || $validation
-                    ) {
-                        echo validMessage($pass, $validLogin, "не меньше 6 символов (латинские буквы, цифры и нижнее подчеркивание, первый символ только буква");
+                    if ($login || $validation) {
+                        echo validMessage($login, $validLogin, "не меньше 6 символов (латинские буквы, цифры и нижнее подчеркивание, первый символ только буква");
                     }
                     ?>
 
                     <div class="formTitle">Пароль</div>
                     <div class="inputPassWrap">
-                        <input id="passwordField" class="inputField inputPassField" type="password" name="password" placeholder="" value="<?= autoComplete($validation, $pass, $pass) ?>" required>
+                        <input id="passwordField" class="inputField inputPassField" type="password" name="password" placeholder="" value="<?= autoComplete($pass) ?>" required>
                         <label id="checkImg" for="" title="показать пароль">
                             <input id="showPass" class="showPass" type="checkbox" name="checkbox" />
                             <span></span>
                         </label>
                     </div>
                     <?php
-                    if ($pass
-                        || $validation
-                    ) {
+                    if ($pass || $validation) {
                         echo validMessage($pass, $validPass, "не менее 8 символов, наличие латинских букв, -, _, *, $, |");
                     }
                     ?>
@@ -46,9 +42,7 @@ include_once('signin.php');
                         <input class="submitBtn" type="submit" name="submit_btn" value="Войти">
                     </div>
                     <?php
-                    if ($message
-                        && $validation
-                    ) {
+                    if ($message && $validation) {
                         echo '<p class="endMessage">' . $message . '</p>';
                     }
                     ?>

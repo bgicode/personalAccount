@@ -26,7 +26,7 @@ function validMessage(mixed $field, mixed $check, string $errMessage = 'недо
 {
     if ($check) {
         $color = 'green';
-        $message = 'соотвестует правилу ввода';
+        $message = 'соответствует правилу ввода';
     } else {
         $color = 'red';
         $message = $errMessage;
